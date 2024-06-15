@@ -25,11 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <EmptySpace min="0" pref="538" max="32767" attributes="0"/>
-=======
               <EmptySpace min="0" pref="553" max="32767" attributes="0"/>
->>>>>>> 720a28d4817bd8ec551c90f5d9487475120ebcf8
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,11 +58,7 @@
                       <Component id="jLabelSecurityPost" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelDashboard" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="17" max="32767" attributes="0"/>
->>>>>>> 720a28d4817bd8ec551c90f5d9487475120ebcf8
               </Group>
           </Group>
         </DimensionLayout>
