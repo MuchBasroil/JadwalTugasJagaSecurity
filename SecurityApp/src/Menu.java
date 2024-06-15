@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -34,9 +37,9 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(java.awt.Color.orange);
+        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
 
-        jLabelDashboard.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelDashboard.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabelDashboard.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDashboard.setText("Dashboard");
         jLabelDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -46,7 +49,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabelSecurity.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelSecurity.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabelSecurity.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSecurity.setText("Security");
         jLabelSecurity.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -56,7 +59,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabelSchedule.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelSchedule.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabelSchedule.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSchedule.setText("Schedule");
         jLabelSchedule.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -66,7 +69,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabelSecurityPost.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelSecurityPost.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabelSecurityPost.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSecurityPost.setText("Security Post");
         jLabelSecurityPost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -76,8 +79,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 102, 0));
+        jButton1.setFont(new java.awt.Font("Poppins ExtraBold", 0, 14)); // NOI18N
         jButton1.setText("Logout");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +92,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
@@ -102,11 +105,21 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
+=======
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelSecurity, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelSchedule, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelSecurityPost)
+                    .addComponent(jLabelDashboard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
+>>>>>>> 720a28d4817bd8ec551c90f5d9487475120ebcf8
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(194, Short.MAX_VALUE)
+                .addContainerGap(168, Short.MAX_VALUE)
                 .addComponent(jLabelDashboard)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelSecurity)
@@ -114,9 +127,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jLabelSchedule)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelSecurityPost)
-                .addGap(77, 77, 77)
+                .addGap(83, 83, 83)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(106, 106, 106))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,11 +138,17 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addGap(0, 538, Short.MAX_VALUE))
+=======
+                .addGap(0, 553, Short.MAX_VALUE))
+>>>>>>> 720a28d4817bd8ec551c90f5d9487475120ebcf8
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,6 +181,14 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int result = 0;
+        result = JOptionPane.showConfirmDialog(rootPane, "Apakah anda yakin?","LOGOUT" ,result );
+        if(result == 0){
+            dispose();
+        
+            Login login = new Login();
+            login.setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabelSecurityPostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSecurityPostMouseClicked
@@ -206,6 +233,9 @@ public class Menu extends javax.swing.JFrame {
             }
         });
     }
+    
+//    Utils
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
