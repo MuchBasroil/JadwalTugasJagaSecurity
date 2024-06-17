@@ -63,6 +63,15 @@ public class Menu extends javax.swing.JFrame {
         jLabelSchedule.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSchedule.setText("Schedule");
         jLabelSchedule.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelSchedule.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                jLabelScheduleAncestorMoved(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jLabelSchedule.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelScheduleMouseClicked(evt);
@@ -155,8 +164,8 @@ public class Menu extends javax.swing.JFrame {
     private void jLabelScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelScheduleMouseClicked
         // TODO add your handling code here:
         dispose();
-        Schedule schedule = new Schedule();
-        schedule.setVisible(true);
+        Schedule schedule1 = new Schedule();
+        schedule1.setVisible(true);
                 
     }//GEN-LAST:event_jLabelScheduleMouseClicked
 
@@ -179,6 +188,10 @@ public class Menu extends javax.swing.JFrame {
         securityPost.setVisible(true);
                 
     }//GEN-LAST:event_jLabelSecurityPostMouseClicked
+
+    private void jLabelScheduleAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabelScheduleAncestorMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelScheduleAncestorMoved
 
     /**
      * @param args the command line arguments

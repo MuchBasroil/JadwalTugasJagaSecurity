@@ -129,6 +129,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="ancestorMoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jLabelScheduleAncestorMoved"/>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelScheduleMouseClicked"/>
           </Events>
         </Component>

@@ -106,15 +106,21 @@ public class DataSecurity extends Menu{
 
         jTableDataSecurity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
 
             }
         ));
+        jTableDataSecurity.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTableDataSecurityAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane1.setViewportView(jTableDataSecurity);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -205,6 +211,10 @@ public class DataSecurity extends Menu{
         // TODO add your handling code here:
         addSecurity();
     }//GEN-LAST:event_jButtonSubmitActionPerformed
+
+    private void jTableDataSecurityAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTableDataSecurityAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableDataSecurityAncestorAdded
 
     /**
      * @param args the command line arguments

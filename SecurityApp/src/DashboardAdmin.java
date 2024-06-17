@@ -2,18 +2,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import database.Dbconnection;
+import database.Dbconnection;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.table.TableModel;
 /**
  *
  * @author mucha
  */
 public class DashboardAdmin extends Menu {
-
+    
+ //    Menyimpan koneksi ke mysql
+    Connection conn;
+    
+//    Variabel statement
+    Statement stmt;
+    
+//    Variabel untuk menyimpan hasil
+    ResultSet rs;
+    
+    Dbconnection connection;
+    
+    
     /**
      * Creates new form DashboardAdmin
      */
     public DashboardAdmin() {
         initComponents();
+        connection = new Dbconnection();
+        conn = connection.getConnection();
+        
+       
     }
 
     /**
@@ -27,12 +57,12 @@ public class DashboardAdmin extends Menu {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jLabelJumlahSecurity = new javax.swing.JLabel();
+        jTextFieldSecurity = new javax.swing.JTextField();
+        jLabelJumlahJadwal = new javax.swing.JLabel();
+        jTextFieldJadwal = new javax.swing.JTextField();
+        jLabelJumlahPost = new javax.swing.JLabel();
+        jTextFieldPost = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,31 +71,36 @@ public class DashboardAdmin extends Menu {
         jLabel1.setFont(new java.awt.Font("Poppins ExtraBold", 1, 36)); // NOI18N
         jLabel1.setText("Dashboard Admin");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Jumlah Security :");
+        jLabelJumlahSecurity.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabelJumlahSecurity.setText("Jumlah Security           :");
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setText("Jumlah Jadwal   : ");
-
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldSecurity.setEditable(false);
+        jTextFieldSecurity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextFieldSecurity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextFieldSecurityActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setText("Jumlah Post       :");
+        jLabelJumlahJadwal.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabelJumlahJadwal.setText("Jumlah Jadwal             : ");
 
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldJadwal.setEditable(false);
+        jTextFieldJadwal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextFieldJadwal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jTextFieldJadwalActionPerformed(evt);
+            }
+        });
+
+        jLabelJumlahPost.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabelJumlahPost.setText("Jumlah Post                 :");
+
+        jTextFieldPost.setEditable(false);
+        jTextFieldPost.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextFieldPost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPostActionPerformed(evt);
             }
         });
 
@@ -81,18 +116,20 @@ public class DashboardAdmin extends Menu {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addComponent(jLabelJumlahPost)
+                        .addGap(37, 42, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(37, 37, 37)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelJumlahJadwal, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelJumlahSecurity, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPost, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldJadwal, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldSecurity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
@@ -102,17 +139,17 @@ public class DashboardAdmin extends Menu {
                 .addComponent(jLabel1)
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelJumlahSecurity)
+                    .addComponent(jTextFieldSecurity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelJumlahJadwal)
+                    .addComponent(jTextFieldJadwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(104, Short.MAX_VALUE))
+                    .addComponent(jLabelJumlahPost)
+                    .addComponent(jTextFieldPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,13 +169,17 @@ public class DashboardAdmin extends Menu {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jTextFieldPostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPostActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jTextFieldPostActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextFieldJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldJadwalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextFieldJadwalActionPerformed
+
+    private void jTextFieldSecurityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSecurityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSecurityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,16 +214,21 @@ public class DashboardAdmin extends Menu {
                 new DashboardAdmin().setVisible(true);
             }
         });
-    }
+        
+        //    Utils
+        
+   
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelJumlahJadwal;
+    private javax.swing.JLabel jLabelJumlahPost;
+    private javax.swing.JLabel jLabelJumlahSecurity;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextFieldJadwal;
+    private javax.swing.JTextField jTextFieldPost;
+    private javax.swing.JTextField jTextFieldSecurity;
     // End of variables declaration//GEN-END:variables
 }
